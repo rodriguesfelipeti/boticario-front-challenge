@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import DrawerComponent from '../Drawer/Drawer';
 import { drawerReducer } from '../../store/actions'
 
+
 const Header = () => {
 
   // const [cart, setCart] = useState([])
@@ -45,7 +46,7 @@ const Header = () => {
                 Infantil
             </Typography>     
             <div onClick={toggleDrawer} className={classes.iconCart}>
-                <ShoppingCartIcon /> { totalCart !== 0 ? `R$ ${totalCart}` :  ''}
+                <ShoppingCartIcon /> { totalCart !== 0 ? `R$ ${totalCart.toFixed(2)}` :  ''}
             </div>
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                 <MenuIcon />
