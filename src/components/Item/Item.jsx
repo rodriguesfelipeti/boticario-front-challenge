@@ -6,15 +6,18 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { Button } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { cartReducer } from '../../store/actions'
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 330,
     marginLeft: '40px',
-    marginTop: '30px'
+    marginTop: '30px' 
   },
   text: {
-    fontSize: '18px'
+    fontSize: '14px'
   }
 });
 
@@ -23,8 +26,15 @@ const Item = (item) => {
   const product = item.item  
   const image = product.images[0].imageUrl
   const classes = useStyles();
+  const dispatch = useDispatch()
 
-  console.log(product)
+
+  const handleAddCart = () => {
+    console.log('ola')
+    dispatch(cartReducer(product))
+    
+  } 
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -44,6 +54,9 @@ const Item = (item) => {
           </Typography>
         </CardContent>
       </CardActionArea> 
+      <CardActions>
+        <Button onClick={handleAddCart}>Add to Cart</Button>
+      </CardActions>
     </Card>
   );
 }

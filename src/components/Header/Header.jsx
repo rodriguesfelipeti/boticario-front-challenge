@@ -7,9 +7,22 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import useStyles from './styles'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { useSelector, useDispatch } from 'react-redux';
+import DrawerComponent from '../Drawer/Drawer';
+import { drawerReducer } from '../../store/actions'
 
 const Header = () => {
+
+  // const [cart, setCart] = useState([])
   const classes = useStyles();
+  // const cart = useSelector(state => state.cartReducer.cart)
+  const totalCart = useSelector(state => state.cartReducer.totalCart)
+  const drawerState = useSelector(state => state.drawerReducer.state.right)
+  const dispatch = useDispatch()
+
+  const toggleDrawer = () => {
+    dispatch(drawerReducer(!drawerState))
+  } 
 
   return (
     <div className={classes.root}>
@@ -31,12 +44,13 @@ const Header = () => {
             <Typography className={classes.title}>
                 Infantil
             </Typography>     
-            <div className={classes.iconCart}>
-                <ShoppingCartIcon /> R$0,00
+            <div onClick={toggleDrawer} className={classes.iconCart}>
+                <ShoppingCartIcon /> { totalCart !== 0 ? `R$ ${totalCart}` :  ''}
             </div>
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                 <MenuIcon />
             </IconButton>
+            <DrawerComponent />
           </div>
         </Toolbar>
       </AppBar>

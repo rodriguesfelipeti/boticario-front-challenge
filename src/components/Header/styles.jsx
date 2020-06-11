@@ -34,15 +34,21 @@ export default makeStyles(() => ({
         marginLeft: '12rem',
     },
     iconCart: {
+        cursor: 'pointer',
         marginLeft: '10%',
         color:  '#000000',  
         marginTop: '5px',
-        width: '100px',
+        width: '150px',
         height: '30px',
         border: 'solid 1px #000000',
         borderRadius: '10px'
     },
-
+    list: {
+        width: 250,
+      },
+      fullList: {
+        width: 'auto',
+      },
     '@media (max-width: 900px)': {
         container: {
             marginLeft: 0,
