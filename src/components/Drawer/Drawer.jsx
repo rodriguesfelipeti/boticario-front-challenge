@@ -14,19 +14,17 @@ import { CartList } from '../'
 const DrawerComponent = () => {
 
     const classes = useStyles();
+    const dispatch = useDispatch()
     const classesHead = useStylesHeader()
-    const anchor = 'right'
+
     const drawerStore = useSelector(state => state.drawerReducer.state)
     const cart = useSelector(state => state.cartReducer.cart).length
     const totalCart = useSelector(state => state.cartReducer.totalCart)
-    const dispatch = useDispatch()
+    const anchor = 'right'
+    
 
-    const toggleDrawer = (anchor, open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-          return;
-        }
-
-        dispatch(drawerReducer(!drawerStore))
+    const toggleDrawer = () => () => {
+      dispatch(drawerReducer(!drawerStore))
     }
 
     return(
@@ -36,7 +34,7 @@ const DrawerComponent = () => {
               <Toolbar>
                 <ArrowBackIcon  onClick={toggleDrawer(anchor, false)} className={classes.cartIcon}/>
                 <ShoppingCartIcon className={classes.cartIcon}/> 
-                <Typography className={classesHead.title}>
+                <Typography className={classesHead.titleDrawer}>
                   {cart > 0 &&  `Total: R$${totalCart.toFixed(2).replace('.', ',')}`}
                 </Typography>     
               </Toolbar>

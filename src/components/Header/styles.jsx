@@ -27,6 +27,11 @@ export default makeStyles(() => ({
           cursor: 'pointer'
       }
     },
+    titleDrawer: {
+      flexGrow: 1,
+      color: '#000000',
+      marginTop: '10px',
+    },
     container: {
       width: '70%',
       display: 'flex',

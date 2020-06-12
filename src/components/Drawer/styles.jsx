@@ -23,5 +23,6 @@ export default makeStyles(() => ({
       list: {
         width: "100vw",
       },
+      
     }
 }))
