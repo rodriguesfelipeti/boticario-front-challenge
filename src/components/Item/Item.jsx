@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { cartReducer } from '../../store/actions'
 
 const useStyles = makeStyles({
@@ -23,6 +23,7 @@ const useStyles = makeStyles({
 
 const Item = (item) => {
    
+  const cart = useSelector(state => state.cartReducer.cart)
   const product = item.item  
   const image = product.images[0].imageUrl
   const classes = useStyles();
@@ -30,8 +31,15 @@ const Item = (item) => {
 
 
   const handleAddCart = () => {
-    console.log('ola')
-    dispatch(cartReducer(product))
+    let indexElmnt = false
+    product.qtd = 1
+    cart.map( (item, index) => {
+        if(item.name === product.name) {
+            indexElmnt = index
+        }   
+        return true
+    })
+    dispatch(cartReducer(product, indexElmnt))
     
   } 
 

@@ -1,4 +1,4 @@
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
     root: {
@@ -7,12 +7,16 @@ export default makeStyles((theme) => ({
     details: {
       display: 'flex',
       flexDirection: 'column',
+      justifyContent: 'right'
     },
     content: {
       flex: '1 0 auto',
     },
     cover: {
-      width: 151,
+      width: 100,
+      height: 100,
+      marginTop: 20,
+      marginLeft: 20
     },
     controls: {
       display: 'flex',
@@ -24,5 +28,13 @@ export default makeStyles((theme) => ({
       height: 38,
       width: 38,
     },
+    removeItem: {
+      marginLeft: 42,
+      marginTop: 10,
+      color: 'red',
+      fontSize: 13,
+      cursor: 'pointer',
+      textDecoration: 'underline'
+    }
   }));
   
