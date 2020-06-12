@@ -46,9 +46,15 @@ const Header = () => {
                 Infantil
             </Typography>     
             <div onClick={toggleDrawer} className={classes.iconCart}>
-                <ShoppingCartIcon /> { totalCart !== 0 ? `R$ ${totalCart.toFixed(2)}` :  ''}
+                <span className={classes.iconSpan}>
+                  <ShoppingCartIcon />
+                </span>
+                <span className={classes.iconSpan}>
+              
+                  { totalCart !== 0 ? `R$ ${totalCart.toFixed(2).replace('.', ',')}` :  ''}
+                </span> 
             </div>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <IconButton edge="start" onClick={toggleDrawer} className={classes.menuButton} color="inherit" aria-label="menu">
                 <MenuIcon />
             </IconButton>
             <DrawerComponent />

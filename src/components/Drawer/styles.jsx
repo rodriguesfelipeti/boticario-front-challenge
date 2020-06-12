@@ -17,5 +17,11 @@ export default makeStyles(() => ({
       marginRight: '15px',
       color: '#000000',
       cursor: 'pointer'
+    },
+
+    '@media (max-width: 720px)': {
+      list: {
+        width: "100vw",
+      },
     }
 }))

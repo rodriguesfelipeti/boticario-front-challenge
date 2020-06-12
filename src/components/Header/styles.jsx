@@ -28,23 +28,29 @@ export default makeStyles(() => ({
       }
     },
     container: {
-        width: '70%',
-        display: 'flex',
-        justifyContent: 'center',
-        marginLeft: '12rem',
+      width: '70%',
+      display: 'flex',
+      justifyContent: 'center',
+      marginLeft: '12rem',
     },
     iconCart: {
-        cursor: 'pointer',
-        marginLeft: '10%',
-        color:  '#000000',  
-        marginTop: '5px',
-        width: '150px',
-        height: '30px',
-        border: 'solid 1px #000000',
-        borderRadius: '10px'
+      cursor: 'pointer',
+      marginLeft: '10%',
+      color:  '#000000',  
+      marginTop: '5px',
+      width: '150px',
+      height: '30px',
+      border: 'solid 1px #000000',
+      borderRadius: '10px',
+      display: 'flex',
+      justifyContent: 'center'
+    },
+    iconSpan: {
+      marginLeft: 10,
+      marginTop: 3
     },
     list: {
-        width: 250,
+      width: 250,
       },
       fullList: {
         width: 'auto',

@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import { Store } from './store';
 
 /* components */
-import { Header } from './components'
-import { Bottom, Items, Titulo } from './Containers'
+import { Header, Bottom } from './components'
+import { Items, Titulo } from './Containers'
 
 function App() {
   return (

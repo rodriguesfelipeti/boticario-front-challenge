@@ -8,7 +8,6 @@ import { drawerReducer } from '../../store/actions'
 import { Typography, AppBar, Toolbar } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-
 import { CartList } from '../'
 
 
@@ -18,6 +17,8 @@ const DrawerComponent = () => {
     const classesHead = useStylesHeader()
     const anchor = 'right'
     const drawerStore = useSelector(state => state.drawerReducer.state)
+    const cart = useSelector(state => state.cartReducer.cart).length
+    const totalCart = useSelector(state => state.cartReducer.totalCart)
     const dispatch = useDispatch()
 
     const toggleDrawer = (anchor, open) => (event) => {
@@ -36,7 +37,7 @@ const DrawerComponent = () => {
                 <ArrowBackIcon  onClick={toggleDrawer(anchor, false)} className={classes.cartIcon}/>
                 <ShoppingCartIcon className={classes.cartIcon}/> 
                 <Typography className={classesHead.title}>
-                  Carrinho
+                  {cart > 0 &&  `Total: R$${totalCart.toFixed(2).replace('.', ',')}`}
                 </Typography>     
               </Toolbar>
             </AppBar>
