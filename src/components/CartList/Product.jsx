@@ -10,7 +10,7 @@ import Divider from '@material-ui/core/Divider';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { useDispatch } from 'react-redux';
-import { removeItemCart } from '../../store/actions'
+import { removeItemCart, increaseItem, decreaseItem } from '../../store/actions'
 
 const Product = ( item ) => {
     const classes = useStyles();
@@ -22,6 +22,14 @@ const Product = ( item ) => {
 
     const handleRemove = () => {
       dispatch(removeItemCart(index))
+    }
+
+    const increaseItemClick = () => {
+      dispatch(increaseItem(index))
+    }
+
+    const decreaseItemClick = () => {
+      dispatch(decreaseItem(index))
     }
 
     return(
@@ -44,13 +52,13 @@ const Product = ( item ) => {
               </Typography>
             </CardContent>
             <div className={classes.controls}>
-              <IconButton aria-label="remove">
+              <IconButton onClick={decreaseItemClick} aria-label="remove">
                 <RemoveIcon />
               </IconButton>
               <Typography color="textSecondary">
                 Qtd: {product.qtd}
               </Typography>
-              <IconButton aria-label="add">
+              <IconButton onClick={increaseItemClick} aria-label="add">
                 <AddIcon />
               </IconButton>
             </div>
